@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
     height: 20,
     width: 500, 
     margin: 10,
-
   }
 
 });

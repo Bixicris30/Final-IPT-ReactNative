@@ -35,7 +35,10 @@ export default class LoginScreen extends React.Component {
 
             <LinearGradient style={styles.container}
                 colors={["#FBD3E9", "#BB377D"]}>
-            <Image source={require('./assets/images/remove.png')} />
+                <Image source={require('./assets/images/remove.png')} />
+                <View style={styles.image}>
+                <Image source={require('./assets/images/l.png')} />
+                </View>
                 <Animatable.View
                     ref={this.validateInput}
                 >
@@ -45,7 +48,7 @@ export default class LoginScreen extends React.Component {
                         style={styles.fields}
                         onChangeText={(text) => {
                             this.setState({ errMsg: '' })
-                                this.setState({ username: text })
+                            this.setState({ username: text })
                         }
                         }
                     />
@@ -75,14 +78,13 @@ export default class LoginScreen extends React.Component {
 
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('Signup')}
-                        style={styles.login}
                     >
                         <Text style={{ textAlign: 'center', color: '#000000', fontSize: 16 }}>Don't have an account? Sign up.</Text>
                     </TouchableOpacity>
 
 
 
-                    <View style={{ flexDirection: 'row', marginBottom:50 }}>
+                    <View style={{ flexDirection: 'row', marginBottom: 50 }}>
                         <View style={styles.f}>
                             <Text style={styles.fText}>f</Text>
                         </View>
@@ -155,4 +157,8 @@ const styles = StyleSheet.create({
         padding: 13,
         margin: 12,
     },
+    image: {
+        right: 120,
+        height: 50,
+    }
 });

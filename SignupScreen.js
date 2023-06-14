@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { View, Text, StyleSheet, ImageBackground } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler'
 import * as Animatable from 'react-native-animatable';
@@ -41,6 +41,12 @@ export default class SignupScreen extends React.Component {
         return (
             <LinearGradient style={styles.container}
                 colors={["#FBD3E9", "#BB377D"]}>
+                <View style={styles.name}>
+                    <Image source={require('./assets/images/logo.png')} />
+                </View>
+                <View style={styles.image}>
+                    <Image source={require('./assets/images/b.png')} />
+                </View>
 
                 <Animatable.View
                     ref={this.validateInput}
@@ -77,7 +83,7 @@ export default class SignupScreen extends React.Component {
                         }
                         }
                     />
-                    <Text>First Name</Text>
+                    <Text>Full Name</Text>
                     <Icon name="user" size={20} color="#ccc" style={{ position: 'absolute', top: 318, left: 20 }} />
                     <TextInput
                         style={styles.fields}
@@ -88,33 +94,11 @@ export default class SignupScreen extends React.Component {
                         }
                         }
                     />
-                    <Text>Last Name</Text>
-                    <Icon name="user" size={20} color="#ccc" style={{ position: 'absolute', top: 407, left: 20 }} />
-                    <TextInput
-                        style={styles.fields}
-                        secureTextEntry={true}
-                        onChangeText={(text) => {
-                            this.setState({ errMsg: '' }),
-                                this.setState({ password: text })
-                        }
-                        }
-                    />
                     <Text>Birthdate</Text>
-                    <Icon name="birthday-cake" size={20} color="#ccc" style={{ position: 'absolute', top: 497, left: 20 }} />
+                    <Icon name="birthday-cake" size={20} color="#ccc" style={{ position: 'absolute', top: 405, left: 20 }} />
                     <TextInput
                         style={styles.fields}
                         placeholder="         dd/mm/yyyy"
-                        secureTextEntry={true}
-                        onChangeText={(text) => {
-                            this.setState({ errMsg: '' }),
-                                this.setState({ password: text })
-                        }
-                        }
-                    />
-                    <Text>Gender</Text>
-                    <Icon name="genderless" size={20} color="#ccc" style={{ position: 'absolute', top: 585, left: 20 }} />
-                    <TextInput
-                        style={styles.fields}
                         secureTextEntry={true}
                         onChangeText={(text) => {
                             this.setState({ errMsg: '' }),
@@ -131,20 +115,17 @@ export default class SignupScreen extends React.Component {
                 <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                     <TouchableOpacity
                         onPress={() => alert('HEHE')}
-                        style={{ width: 200, backgroundColor: '#FFC0CB', padding: 10, alignItems: 'center', justifyContent: 'center', borderRadius: 40, borderWidth: 1, borderColor: '#000000' }}
+                        style={{ width: 200, backgroundColor: '#FFC0CB', padding: 10, bottom: 30, alignItems: 'center', justifyContent: 'center', borderRadius: 40, borderWidth: 1, borderColor: '#000000' }}
                     >
                         <Text style={{ textAlign: 'center', color: '#000000', fontSize: 16 }}>Register</Text>
 
 
                     </TouchableOpacity>
-
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('Login')}
-                        style={styles.login}
                     >
-                        <Text style={{ textAlign: 'center', color: '#000000', fontSize: 16, marginBottom: 30, }}>Already have an account? Login.</Text>
+                        <Text style={{ textAlign: 'center', color: '#000000', bottom: 15, fontSize: 16 }}>Don't have an account? Sign up.</Text>
                     </TouchableOpacity>
-
 
                 </View>
 
@@ -167,5 +148,13 @@ const styles = StyleSheet.create({
         padding: 13,
         margin: 13,
     },
+    image: {
+        right: 100,
+        height: 50,
+        bottom: 50
+    },
+    name: {
+        width: 470,
+    }
 
 });
