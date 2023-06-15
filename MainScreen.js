@@ -30,7 +30,7 @@ export default class MainScreen extends React.Component {
                         justifyContent: 'space-between'
                     }}>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Login')}>
+                        onPress={() => this.props.navigation.navigate('Logout')}>
                         <Ionicons
                             name="md-person"
                             size={25}

@@ -112,10 +112,10 @@ export default class SignupScreen extends React.Component {
 
 
 
-                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                <View style={{ alignItems: 'center', justifyContent: 'center', marginBottom: 100 }}>
                     <TouchableOpacity
                         onPress={() => alert('HEHE')}
-                        style={{ width: 200, backgroundColor: '#FFC0CB', padding: 10, bottom: 30, alignItems: 'center', justifyContent: 'center', borderRadius: 40, borderWidth: 1, borderColor: '#000000' }}
+                        style={{ width: 200, backgroundColor: '#FFC0CB', padding: 10, bottom: 12, alignItems: 'center', justifyContent: 'center', borderRadius: 40, borderWidth: 1, borderColor: '#000000' }}
                     >
                         <Text style={{ textAlign: 'center', color: '#000000', fontSize: 16 }}>Register</Text>
 
@@ -124,7 +124,7 @@ export default class SignupScreen extends React.Component {
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('Login')}
                     >
-                        <Text style={{ textAlign: 'center', color: '#000000', bottom: 15, fontSize: 16 }}>Don't have an account? Sign up.</Text>
+                        <Text style={{ textAlign: 'center', color: '#000000', bottom: 5, fontSize: 16 }}>Don't have an account? Sign up.</Text>
                     </TouchableOpacity>
 
                 </View>
@@ -151,10 +151,11 @@ const styles = StyleSheet.create({
     image: {
         right: 100,
         height: 50,
-        bottom: 50
+        bottom: 20
     },
     name: {
         width: 470,
+        top: 50
     }
 
 });

@@ -6,6 +6,8 @@ import HomeScreen from './HomeScreen';
 import LoginScreen from './LoginScreen';
 import MainScreen from './MainScreen';
 import SignupScreen from './SignupScreen';
+import RegisteredScreen from './RegisteredScreen';
+import LogoutScreen from './LogoutScreen';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +21,9 @@ export default class App extends React.Component{
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Main" component={MainScreen} />
             <Stack.Screen name="Signup" component={SignupScreen} />
+            <Stack.Screen name="Register" component={RegisteredScreen} />
+            <Stack.Screen name="Logout" component={LogoutScreen} />
+            
           </Stack.Navigator>
         </NavigationContainer>
       </View>
