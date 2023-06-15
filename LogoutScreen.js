@@ -17,7 +17,7 @@ export default class LogoutScreen extends React.Component {
                 <View style={{ alignItems: 'center', justifyContent: 'center', marginBottom: 180 }}>
 
 
-                    <Text style={{ textAlign: 'center', color: '#000000', fontWeight: 'bold', fontSize: 16, top: 20 }}>You've successfully signed out.</Text>
+                    <Text style={{ textAlign: 'center', color: '#000000', fontWeight: 'bold', fontSize: 16, top: 20 }}>You've successfully logout.</Text>
                     <Text style={{ textAlign: 'center', color: '#000000', fontWeight: 'bold', fontSize: 16, top: 20 }}>See you soon!</Text>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('Login')}
