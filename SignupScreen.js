@@ -114,7 +114,7 @@ export default class SignupScreen extends React.Component {
 
                 <View style={{ alignItems: 'center', justifyContent: 'center', marginBottom: 100 }}>
                     <TouchableOpacity
-                        onPress={() => alert('HEHE')}
+                        onPress={() => this.props.navigation.navigate('Register')}
                         style={{ width: 200, backgroundColor: '#FFC0CB', padding: 10, bottom: 12, alignItems: 'center', justifyContent: 'center', borderRadius: 40, borderWidth: 1, borderColor: '#000000' }}
                     >
                         <Text style={{ textAlign: 'center', color: '#000000', fontSize: 16 }}>Register</Text>
