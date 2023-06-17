@@ -29,18 +29,20 @@ export default class MainScreen extends React.Component {
                         paddingHorizontal: 20,
                         justifyContent: 'space-between'
                     }}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Logout')}>
-                        <Ionicons
-                            name="md-person"
-                            size={25}
-                            color="#00000"
-                        />
-                    </TouchableOpacity>
+                    <Image source={require('./assets/images/small.png')} />
+                    <View style={styles.image}></View>
                     <TouchableOpacity
                         onPress={() => alert('Search - Coming soon')}>
                         <Ionicons
                             name="md-search"
+                            size={25}
+                            color="#000000"
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('Logout')}>
+                        <Ionicons
+                            name="md-person"
                             size={25}
                             color="#000000"
                         />
@@ -91,7 +93,7 @@ export default class MainScreen extends React.Component {
                             <View style={{ marginLeft: 10 }}>
                                 <Image source={require('./assets/images/abe.png')} style={styles.bfp}>
                                 </Image>
-                                <Text style={{ marginTop: 5, fontSize: 13, fontWeight: 'bold' }}>Abegail</Text>
+                                <Text style={{ marginTop: 5, fontSize: 13, fontWeight: 'bold' }}>Abe</Text>
                             </View>
 
                             <View style={{ marginLeft: 10 }}>
@@ -156,6 +158,8 @@ const styles = StyleSheet.create({
         width: '100%',
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10
-
     },
+    image: {
+        width: 170,
+    }
 })
