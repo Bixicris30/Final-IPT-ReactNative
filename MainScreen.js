@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StyleSheet, View, Text, Dimensions, Image, ImageBackground } from 'react-native'
+import { StyleSheet, View, Text, Dimensions, Image, ImageBackground, Button, TextInput } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import { Ionicons } from '@expo/vector-icons'
@@ -94,24 +94,44 @@ export default class MainScreen extends React.Component {
                                 <Image source={require('./assets/images/abe.png')} style={styles.bfp}>
                                 </Image>
                                 <Text style={{ marginTop: 5, fontSize: 13, fontWeight: 'bold' }}>Abe</Text>
+                                <TextInput
+                                    placeholder="type a comment..."
+                                    style={{ borderWidth: 1, padding: 10 }}
+                                />
+                                <Button title="Submit"/>
                             </View>
 
                             <View style={{ marginLeft: 10 }}>
                                 <Image source={require('./assets/images/ashly.png')} style={styles.bfp}>
                                 </Image>
                                 <Text style={{ marginTop: 5, fontSize: 13, fontWeight: 'bold' }}>Ashly</Text>
+                                <TextInput
+                                    placeholder="type a comment..."
+                                    style={{ borderWidth: 1, padding: 10 }}
+                                />
+                                <Button title="Submit"/>
                             </View>
 
                             <View style={{ marginLeft: 10 }}>
                                 <Image source={require('./assets/images/dave.png')} style={styles.bfp}>
                                 </Image>
                                 <Text style={{ marginTop: 5, fontSize: 13, fontWeight: 'bold' }}>Dave</Text>
+                                <TextInput
+                                    placeholder="type a comment..."
+                                    style={{ borderWidth: 1, padding: 10 }}
+                                />
+                                <Button title="Submit"/>
                             </View>
 
                             <View style={{ marginLeft: 10 }}>
                                 <Image source={require('./assets/images/jesse.png')} style={styles.bfp}>
                                 </Image>
                                 <Text style={{ marginTop: 5, fontSize: 13, fontWeight: 'bold' }}>Jesse</Text>
+                                <TextInput
+                                    placeholder="type a comment..."
+                                    style={{ borderWidth: 1, padding: 10 }}
+                                />
+                                <Button title="Submit"/>
                             </View>
                         </ScrollView>
                     </View>
@@ -161,5 +181,12 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 170,
+    },
+    input: {
+        borderWidth: 3.5,
+        padding: 5,
+        width: 350,
+        flex: 1,
+        borderColor: 'white'
     }
 })
