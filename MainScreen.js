@@ -96,9 +96,9 @@ export default class MainScreen extends React.Component {
                                 <Text style={{ marginTop: 5, fontSize: 13, fontWeight: 'bold' }}>Abe</Text>
                                 <TextInput
                                     placeholder="type a comment..."
-                                    style={{ borderWidth: 1, padding: 10 }}
+                                    style={{ borderWidth: 1, padding: 10, borderRadius: 15, backgroundColor: '#FEA3C4', color: '#EFECED', fontWeight: 'bold', fontSize: 16 }}
                                 />
-                                <Button title="Submit"/>
+                                <Button title="Submit" color='plum'/>
                             </View>
 
                             <View style={{ marginLeft: 10 }}>
@@ -107,9 +107,9 @@ export default class MainScreen extends React.Component {
                                 <Text style={{ marginTop: 5, fontSize: 13, fontWeight: 'bold' }}>Ashly</Text>
                                 <TextInput
                                     placeholder="type a comment..."
-                                    style={{ borderWidth: 1, padding: 10 }}
+                                    style={{ borderWidth: 1, padding: 10, borderRadius: 15, backgroundColor: '#FEA3C4', color: '#EFECED', fontWeight: 'bold', fontSize: 16 }}
                                 />
-                                <Button title="Submit"/>
+                                <Button title="Submit" color='plum'/>
                             </View>
 
                             <View style={{ marginLeft: 10 }}>
@@ -118,9 +118,9 @@ export default class MainScreen extends React.Component {
                                 <Text style={{ marginTop: 5, fontSize: 13, fontWeight: 'bold' }}>Dave</Text>
                                 <TextInput
                                     placeholder="type a comment..."
-                                    style={{ borderWidth: 1, padding: 10 }}
+                                    style={{ borderWidth: 1, padding: 10, borderRadius: 15, backgroundColor: '#FEA3C4', color: '#EFECED', fontWeight: 'bold', fontSize: 16 }}
                                 />
-                                <Button title="Submit"/>
+                                <Button title="Submit" color='plum'/>
                             </View>
 
                             <View style={{ marginLeft: 10 }}>
@@ -129,14 +129,14 @@ export default class MainScreen extends React.Component {
                                 <Text style={{ marginTop: 5, fontSize: 13, fontWeight: 'bold' }}>Jesse</Text>
                                 <TextInput
                                     placeholder="type a comment..."
-                                    style={{ borderWidth: 1, padding: 10 }}
+                                    style={{ borderWidth: 1, padding: 10, borderRadius: 15, backgroundColor: '#FEA3C4', color: '#EFECED', fontWeight: 'bold', fontSize: 16 }}
                                 />
-                                <Button title="Submit"/>
+                                <Button title="Submit"color='plum'/>
                             </View>
                         </ScrollView>
                     </View>
 
-                    <View style={{ backgroundColor: '#000000', height: 300, margin: 20, borderRadius: 10, alignItems: 'center', }} >
+                    <View style={{ backgroundColor: '#000000', height: 320, margin: 20, borderRadius: 10, alignItems: 'center', top: 30 }} >
                         <ImageBackground source={require('./assets/images/main.png')} style={styles.top}>
                         </ImageBackground>
 
@@ -174,10 +174,10 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     top: {
-        height: 200,
+        height: 210,
         width: '100%',
         borderTopLeftRadius: 10,
-        borderTopRightRadius: 10
+        borderTopRightRadius: 10,
     },
     image: {
         width: 170,

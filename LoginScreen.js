@@ -12,7 +12,6 @@ export default class LoginScreen extends React.Component {
         super(props)
         this.validateInput = React.createRef()
     }
-
     state = {
         username: "",
         password: "",
