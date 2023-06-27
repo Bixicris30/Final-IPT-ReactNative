@@ -11,8 +11,8 @@ import LogoutScreen from './LogoutScreen';
 
 const Stack = createStackNavigator();
 
-export default class App extends React.Component{
-  render(){
+ const App = ()=>{
+ 
     return(
       <View style= {styles.container}>
         <NavigationContainer>
@@ -23,13 +23,14 @@ export default class App extends React.Component{
             <Stack.Screen name="Signup" component={SignupScreen} />
             <Stack.Screen name="Register" component={RegisteredScreen} />
             <Stack.Screen name="Logout" component={LogoutScreen} />
-            
           </Stack.Navigator>
         </NavigationContainer>
       </View>
     )
-  }
 }
+
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
