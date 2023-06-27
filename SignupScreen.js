@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image,ScrollView } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler'
 import * as Animatable from 'react-native-animatable';
@@ -14,31 +14,61 @@ export default class SignupScreen extends React.Component {
     }
 
     state = {
+        email:"",
         username: "",
+        first_name:"",
+        last_name:"",
         password: "",
+        password_confirmation:"",
         errMsg: ""
     }
 
-    onLogin = () => {
-        if (this.state.username == 'abe' && this.state.password == 'pretty') {
-            this.props.navigation.navigate('Main')
-        } else {
-            this.validateInput.current.shake(800)
-            this.setState({ errMsg: 'Invalid login details. Try again!' })
-        }
-    }
+    // onLogin = () => {
+    //     if (this.state.username == 'abe' && this.state.password == 'pretty') {
+    //         this.props.navigation.navigate('Main')
+    //     } else {
+    //         this.validateInput.current.shake(800)
+    //         this.setState({ errMsg: 'Invalid login details. Try again!' })
+    //     }
+    // }
 
-    onLogin = () => {
-        if (this.state.username == 'abe' && this.state.password == 'pretty') {
-            this.props.navigation.navigate('Main')
-        } else {
-            this.validateInput.current.shake(800)
-            this.setState({ errMsg: 'Invalid login details. Try again!' })
-        }
+    // onLogin = () => {
+    //     if (this.state.username == 'abe' && this.state.password == 'pretty') {
+    //         this.props.navigation.navigate('Main')
+    //     } else {
+    //         this.validateInput.current.shake(800)
+    //         this.setState({ errMsg: 'Invalid login details. Try again!' })
+    //     }
+    // }
+
+    onRegister = () => {
+       const {errMsg, ...rest} = this.state
+        fetch('http://127.0.0.1:8000/api/register', {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              method: "POST",
+              body: JSON.stringify(rest)
+
+        }).then((response) =>{
+            if(response.status===201){
+                this.props.navigation.navigate('Login')
+                alert("Please login your account")
+            }
+             return response.json()
+        }).then((responseJson) => {
+             AsyncStorage.setItem('token',JSON.stringify(responseJson) )
+          })
+        .catch((error) => {
+            alert(JSON.stringify(error));
+        });
     }
+    
 
     render() {
         return (
+          
             <LinearGradient style={styles.container}
                 colors={["#FBD3E9", "#BB377D"]}>
                 <View style={styles.name}>
@@ -47,7 +77,7 @@ export default class SignupScreen extends React.Component {
                 <View style={styles.image}>
                     <Image source={require('./assets/images/b.png')} />
                 </View>
-
+                <ScrollView >
                 <Animatable.View
                     ref={this.validateInput}
                 >
@@ -57,7 +87,7 @@ export default class SignupScreen extends React.Component {
                         style={styles.fields}
                         onChangeText={(text) => {
                             this.setState({ errMsg: '' }),
-                                this.setState({ username: text })
+                                this.setState({ email: text })
                         }
                         }
                     />
@@ -65,10 +95,9 @@ export default class SignupScreen extends React.Component {
                     <Icon name="user" size={20} color="#ccc" style={{ position: 'absolute', top: 135, left: 20 }} />
                     <TextInput
                         style={styles.fields}
-                        secureTextEntry={true}
                         onChangeText={(text) => {
                             this.setState({ errMsg: '' }),
-                                this.setState({ password: text })
+                                this.setState({ username: text })
                         }
                         }
                     />
@@ -83,26 +112,35 @@ export default class SignupScreen extends React.Component {
                         }
                         }
                     />
-                    <Text>Full Name</Text>
-                    <Icon name="user" size={20} color="#ccc" style={{ position: 'absolute', top: 318, left: 20 }} />
+
+                    <Text>Password Confirmation</Text>
+                    <Icon name="question" size={20} color="#ccc" style={{ position: 'absolute', top: 318, left: 20 }} />
                     <TextInput
                         style={styles.fields}
                         secureTextEntry={true}
                         onChangeText={(text) => {
                             this.setState({ errMsg: '' }),
-                                this.setState({ password: text })
+                                this.setState({ password_confirmation: text })
+                        }}
+                    />
+
+                    <Text>First name</Text>
+                    <Icon name="user" size={20} color="#ccc" style={{ position: 'absolute', top: 405, left: 20 }} />
+                    <TextInput
+                        style={styles.fields}
+                        onChangeText={(text) => {
+                            this.setState({ errMsg: '' }),
+                                this.setState({ first_name: text })
                         }
                         }
                     />
-                    <Text>Birthdate</Text>
-                    <Icon name="birthday-cake" size={20} color="#ccc" style={{ position: 'absolute', top: 405, left: 20 }} />
+                    <Text>Last name</Text>
+                    <Icon name="user" size={20} color="#ccc" style={{ position: 'absolute', top: 480, left: 20 }} />
                     <TextInput
                         style={styles.fields}
-                        placeholder="         dd/mm/yyyy"
-                        secureTextEntry={true}
                         onChangeText={(text) => {
                             this.setState({ errMsg: '' }),
-                                this.setState({ password: text })
+                                this.setState({ last_name: text })
                         }
                         }
                     />
@@ -114,7 +152,7 @@ export default class SignupScreen extends React.Component {
 
                 <View style={{ alignItems: 'center', justifyContent: 'center', marginBottom: 100 }}>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Register')}
+                        onPress={this.onRegister}
                         style={{ width: 200, backgroundColor: '#7A5C58', padding: 10, bottom: 12, alignItems: 'center', justifyContent: 'center', borderRadius: 15, borderWidth: 1, borderColor: '#000000' }}
                     >
                         <Text style={{ textAlign: 'center', color: '#ffffff', fontSize: 16 }}>Register</Text>
@@ -128,8 +166,9 @@ export default class SignupScreen extends React.Component {
                     </TouchableOpacity>
 
                 </View>
-
+                </ScrollView>
             </LinearGradient>
+           
         )
     }
 }

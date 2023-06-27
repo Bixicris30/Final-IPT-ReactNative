@@ -4,6 +4,7 @@ import { TextInput, TouchableOpacity } from 'react-native-gesture-handler'
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Animatable from 'react-native-animatable';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default class LoginScreen extends React.Component {
@@ -18,17 +19,77 @@ export default class LoginScreen extends React.Component {
         errMsg: ""
     }
 
-    onLogin = () => {
-        if (this.state.username == 'abe' && this.state.password == 'pretty') {
-            this.props.navigation.navigate('Main')
-        } else {
-            this.validateInput.current.shake(800)
-            this.setState({ errMsg: 'Invalid login details. Try again!' })
-        }
-    }
+    // onLogin = () => {
+    //     if (this.state.username == 'abe' && this.state.password == 'pretty') {
+    //         this.props.navigation.navigate('Main')
+    //     } else {
+    //         this.validateInput.current.shake(800)
+    //         this.setState({ errMsg: 'Invalid login details. Try again!' })
+    //     }
+    // }
 
+    onLogin = async () => {
+        //GET request
+        const payload = {
+            username: this.state.username,
+            password: this.state.password
+          }
+        fetch('http://127.0.0.1:8000/api/login', {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              method: "POST",
+              body: JSON.stringify(payload)
 
+        }).then((response) =>{
+            if(response.status===200){
+               this.props.navigation.navigate('Main')
+            }
+             return response.json()}
+        )
+        .then((responseJson) => {
+            alert(JSON.stringify(responseJson))
+             AsyncStorage.setItem('token',JSON.stringify(responseJson) )
+          })
+        .catch((error) => {
+            alert(JSON.stringify(error));
+        });
+    };
 
+  
+    
+    getUser = async () => {
+        const storage = await AsyncStorage.getItem('token');
+        const token = JSON.parse(storage).token
+      //GET request
+      fetch('http://127.0.0.1:8000/api/user', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `token ${token}`,
+          }
+      })
+        .then((response) => {
+            if(response.status===200){
+               this.props.navigation.navigate('Main')
+            }
+            return response.json()
+        })
+        .then((responseJson) => {
+          alert(JSON.stringify(responseJson));
+        })
+        .catch((error) => {
+          alert(JSON.stringify(error));
+         
+  
+        });
+    };
+  
+    componentDidMount() {
+        this.getUser();
+      }
     render() {
         return (
 

@@ -3,11 +3,15 @@ import { StyleSheet, View, Text, Dimensions, Image, ImageBackground, Button, Tex
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import { Ionicons } from '@expo/vector-icons'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const window = Dimensions.get('window')
 
 export default class MainScreen extends React.Component {
-
+    handleLogout = async() => {
+        await AsyncStorage.removeItem('token')
+        this.props.navigation.navigate('Logout')
+    }
     render() {
         this.props.navigation.setOptions({
             headerBackTitle: '',
@@ -40,7 +44,7 @@ export default class MainScreen extends React.Component {
                         />
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Logout')}>
+                        onPress={this.handleLogout}>
                         <Ionicons
                             name="md-person"
                             size={25}
