@@ -102,7 +102,7 @@ export default class LoginScreen extends React.Component {
                 <Animatable.View
                     ref={this.validateInput}
                 >
-                    <Text>Email</Text>
+                    <Text>Username</Text>
                     <Icon name="envelope-o" size={20} color="#ccc" style={{ position: 'absolute', top: 45, left: 20 }} />
                     <TextInput
                         style={styles.fields}
