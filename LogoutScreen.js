@@ -19,13 +19,18 @@ export default class LogoutScreen extends React.Component {
 
                     <Text style={{ textAlign: 'center', color: '#000000', fontWeight: 'bold', fontSize: 16, top: 20 }}>You've successfully logout.</Text>
                     <Text style={{ textAlign: 'center', color: '#000000', fontWeight: 'bold', fontSize: 16, top: 20 }}>See you soon!</Text>
-                    <TouchableOpacity
+                    {/* <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('Login')}
                         style={{ width: 200, height: 50, backgroundColor: '#7A5C58', alignItems: 'center', justifyContent: 'center', top: 60, borderRadius: 15, marginBottom: 20, borderWidth: 1, borderColor: '#000000' }}
                     >
                         <Text style={{ textAlign: 'center', color: '#ffffff', fontWeight: 'bold', fontSize: 16 }}>Back to Login</Text>
+                    </TouchableOpacity> */}
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('Login')}
+                        style={{ width: 200, height: 50, backgroundColor: '#7A5C58', alignItems: 'center', justifyContent: 'center', borderRadius: 15, marginBottom: 10, borderWidth: 1, borderColor: '#000000' }}
+                    >
+                        <Text style={{ textAlign: 'center', color: '#ffffff', fontWeight: 'bold', fontSize: 16 }}>Login</Text>
                     </TouchableOpacity>
-
                 </View>
 
             </LinearGradient>

@@ -19,10 +19,15 @@ const Stack = createStackNavigator();
           <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Main" component={MainScreen} />
+            <Stack.Screen name="Main" 
+            component={MainScreen} />
             <Stack.Screen name="Signup" component={SignupScreen} />
             <Stack.Screen name="Register" component={RegisteredScreen} />
-            <Stack.Screen name="Logout" component={LogoutScreen} />
+            <Stack.Screen name="Logout"
+             options={{
+              headerShown:false
+          }}
+            component={LogoutScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>

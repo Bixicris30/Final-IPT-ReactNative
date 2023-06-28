@@ -61,7 +61,7 @@ export default class SignupScreen extends React.Component {
              AsyncStorage.setItem('token',JSON.stringify(responseJson) )
           })
         .catch((error) => {
-            alert(JSON.stringify(error));
+            console.error(error)
         });
     }
     
